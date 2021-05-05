@@ -4,13 +4,14 @@ import React from "react";
 
 function ResultList(props) {
   return (
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-12"></div>
-        <p>PICTURE</p>
-        <p>NAME HERE</p>
-        <p>888-888-8888</p>
-        <p>email@email.com</p>
+    <div className="container">
+      <div className="row justify-content-between">
+        <div className="col-12"></div>
+        <img src= {props.image} alt="user profile" />
+        <p>{props.firstName} {props.lastName}</p>
+        <p>{props.email}</p>
+        <p>{props.phone}</p>
+        <p>{props.email}</p>
       </div>
     </div>
 )}
