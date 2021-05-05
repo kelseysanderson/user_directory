@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
-import ResultList from "./ResultList";
+import EmployeeRow from "./EmployeeRow";
 import API from "../utils/API";
 
 class SearchResultContainer extends Component {
@@ -9,42 +9,34 @@ class SearchResultContainer extends Component {
     results: []
   };
 
-  // When this component mounts, search the Giphy API for pictures of kittens
-  componentDidMount() {
-    this.searchGiphy("kittens");
-  }
-
-  searchGiphy = query => {
-    API.search(query)
-      .then(res => this.setState({ results: res.data.data }))
-      .catch(err => console.log(err));
-  };
-
-  handleInputChange = event => {
-    const name = event.target.name;
-    const value = event.target.value;
-    this.setState({
-      [name]: value
+  componentDidMount(query) {
+    API.getRandomUsers()
+      .then(res =>{
+        this.setState({
+            results: res.data.results,
+        });
+        console.log(this.state.results)
     });
-  };
-
-  // When the form is submitted, search the Giphy API for `this.state.search`
-  handleFormSubmit = event => {
-    event.preventDefault();
-    //using this everytime the form is submitted. 
-    //getting the value from a form  and applying it to searchGiphy function to set results to search word.
-    this.searchGiphy(this.state.search);
-  };
+  }
 
   render() {
     return (
       <div>
-        <SearchForm
+        <SearchForm 
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
-        />
-        <ResultList results={this.state.results} />
+          />
+        {this.state.results.map(user => (
+          <EmployeeRow 
+          key={user.phone}
+          image={user.picture.medium}
+          firstName={user.name.first}
+          lastName={user.name.last}
+          phone={user.phone}
+          email={user.email}
+          />
+        ))}
       </div>
     );
   }
