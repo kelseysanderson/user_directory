@@ -5,7 +5,7 @@ function SearchForm(props) {
     <div className="search-section">
       <form className="form-inline my-2 my-lg-0">
         <input 
-          onChange={props.handleInputChange}
+          onChange={e=> props.handleInputChange(e)}
           value={props.search}
           className="form-control mr-sm-2" 
           name="search"
