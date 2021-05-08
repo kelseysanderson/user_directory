@@ -1,0 +1,14 @@
+div.page-header {
+    border-bottom:2px solid rgb(80, 38, 80);
+    color:white;
+    height:100px;
+    margin-bottom: 30px;
+}
+
+h1#page-header-text {
+    color:white;
+    padding-top:25px;
+    margin-left: 50px;
+    letter-spacing: 5px;
+    color:rgb(80, 38, 80)
+}

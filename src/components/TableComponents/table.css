@@ -1,0 +1,38 @@
+img {
+    border-radius: 60px;
+    margin-left:25px;
+}
+
+thead {
+    background-color: rgb(224, 224, 224);
+}
+
+td {
+    margin:0;
+    padding: 0;
+    letter-spacing: 2px;
+}
+
+#name-dropdown {
+    text-align:center;
+}
+
+.table-responsive{
+    background-color: white;
+    border-radius: 4px;
+    margin-bottom:100px;
+    border: 2px solid rgb(80, 38, 80)
+}
+
+.header-text {
+    font-weight: bold;
+    font-size: 18px;
+    text-align: center;
+}
+
+.table-data {
+    text-align:center;
+}
+
+
+

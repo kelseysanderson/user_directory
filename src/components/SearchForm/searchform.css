@@ -1,0 +1,21 @@
+div.search-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+input#search.form-control.mr-sm-2 {
+    border: 2px solid rgb(80, 38, 80);
+}
+
+button.btn-primary {
+    background-color:rgb(77, 36, 77);
+    border: 2px solid rgb(48, 22, 48);
+}
+
+button.btn-primary:hover {
+    background-color:rgb(109, 53, 109); 
+    border: 2px solid rgb(48, 22, 48);  
+}
+
+
