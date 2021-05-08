@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import SearchForm from "./SearchForm";
 import EmployeeRow from "./EmployeeRow";
+import ColumnHeaders from "./ColumnHeaders";
+import PageHeader from "./PageHeader"
 import API from "../utils/API";
 
 class SearchResultContainer extends Component {
@@ -22,21 +24,25 @@ class SearchResultContainer extends Component {
   render() {
     return (
       <div>
+        <PageHeader/>
         <SearchForm 
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
-          />
-        {this.state.results.map(user => (
-          <EmployeeRow 
-          key={user.phone}
-          image={user.picture.medium}
-          firstName={user.name.first}
-          lastName={user.name.last}
-          phone={user.phone}
-          email={user.email}
-          />
-        ))}
+        />
+        <table className="table">
+          <ColumnHeaders/>
+          {this.state.results.map(user => (
+            <EmployeeRow 
+            key={user.phone}
+            image={user.picture.medium}
+            firstName={user.name.first}
+            lastName={user.name.last}
+            phone={user.phone}
+            email={user.email}
+            />
+          ))}
+        </table>
       </div>
     );
   }
