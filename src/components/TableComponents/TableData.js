@@ -68,8 +68,8 @@ class TableData extends Component {
   render() {
 
     let sortBtnText = "";
-    if (this.state.sortAtoZ) { sortBtnText = "Sort A to Z" }
-    else { sortBtnText = "Sort Z to A" }
+    if (this.state.sortAtoZ) { sortBtnText = "A-Z" }
+    else { sortBtnText = "Z-A" }
 
     return (
       <div>
