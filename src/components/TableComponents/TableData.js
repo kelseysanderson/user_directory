@@ -7,7 +7,7 @@ import "./table.css"
 class TableData extends Component {
   state = {
     search: "",
-    //results: [],
+    results: [],
     filteredResults: [],
     sortAtoZ: false
   };
@@ -15,7 +15,7 @@ class TableData extends Component {
   handleInputChange = (e) => {
     this.setState({ search: e.target.value })
     const filter = e.target.value;
-    const filteredUsers = this.state.filteredResults.filter(user => {
+    const filteredUsers = this.state.results.filter(user => {
       let values = Object.values(user)
         .join("")
       return values.indexOf(filter.toLowerCase()) !== -1;
@@ -28,7 +28,7 @@ class TableData extends Component {
     API.getRandomUsers()
       .then(res => {
         this.setState({
-          // results: res.data.results,
+          results: res.data.results,
           filteredResults: res.data.results,
           sortAtoZ: true,
         });
@@ -66,8 +66,8 @@ class TableData extends Component {
   render() {
 
     let sortBtnText = "";
-    if (this.state.sortAtoZ) {sortBtnText = <span>&#65;&#90;&#8595;</span>}
-    else {sortBtnText = <span>&#65;&#90;&#8595;</span>}
+    if (this.state.sortAtoZ) {sortBtnText = "Sort A to Z"}
+    else {sortBtnText = "Sort Z to A"}
 
     return (
       <div>

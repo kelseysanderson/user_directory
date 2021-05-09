@@ -6,16 +6,18 @@ div.search-section {
 
 input#search.form-control.mr-sm-2 {
     border: 2px solid rgb(80, 38, 80);
+    padding:18px;
 }
 
-button.btn-primary {
+button#search-btn.btn {
     background-color:rgb(77, 36, 77);
     border: 2px solid rgb(48, 22, 48);
+    color:white
 }
 
-button.btn-primary:hover {
+button#search-btn.btn:hover {
     background-color:rgb(109, 53, 109); 
-    border: 2px solid rgb(48, 22, 48);  
+      
 }
 
 

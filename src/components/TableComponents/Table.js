@@ -3,6 +3,7 @@ import TableRows from "./TableRows"
 import "./table.css"
 
 
+
 // need employee name (first/last), phone number, email, picture
 
 function Table(props) {
@@ -15,7 +16,7 @@ function Table(props) {
             <tr>
               <th scope="col"></th>
               
-              <th scope="col" className="align-middle header-text">Name<button onClick={e => props.toggleSortName(e, props.state)}><span>{props.sortBtnText}</span></button></th>
+              <th scope="col" className="align-middle header-text">Name<button className="btn my-2 my-sm-0" id="sort-btn" onClick={e => props.toggleSortName(e, props.state)}>{props.sortBtnText}</button></th>
         
               <th scope="col" className="align-middle header-text">Phone</th>
               <th scope="col" className="align-middle header-text">Email</th>
