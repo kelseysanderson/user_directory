@@ -24,7 +24,7 @@ Following installation, type `npm start` into the terminal. This will open up th
 ![Screenshot of User Directory](./user-directory-screencapture.jpg)
 
 ## URL
-[Live URL to Progressive Budget](https://kelseysanderson.github.io/user_directory/)
+[Live URL to User Directory](https://kelseysanderson.github.io/user_directory/)
 
 ## License
 Read more about the license here:
