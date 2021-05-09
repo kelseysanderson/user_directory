@@ -15,7 +15,7 @@ function Table(props) {
             <tr>
               <th scope="col"></th>
               
-              <th scope="col" className="align-middle header-text">Name<button onClick={e => props.toggleSortName(e)}>Sort</button></th>
+              <th scope="col" className="align-middle header-text">Name<button onClick={e => props.toggleSortName(e, props.state)}><span>{props.sortBtnText}</span></button></th>
         
               <th scope="col" className="align-middle header-text">Phone</th>
               <th scope="col" className="align-middle header-text">Email</th>

@@ -7,15 +7,15 @@ import "./table.css"
 class TableData extends Component {
   state = {
     search: "",
-    results: [],
+    //results: [],
     filteredResults: [],
-    sortAtoZ: true
+    sortAtoZ: false
   };
 
   handleInputChange = (e) => {
     this.setState({ search: e.target.value })
     const filter = e.target.value;
-    const filteredUsers = this.state.results.filter(user => {
+    const filteredUsers = this.state.filteredResults.filter(user => {
       let values = Object.values(user)
         .join("")
       return values.indexOf(filter.toLowerCase()) !== -1;
@@ -28,41 +28,60 @@ class TableData extends Component {
     API.getRandomUsers()
       .then(res => {
         this.setState({
-          results: res.data.results,
+          // results: res.data.results,
           filteredResults: res.data.results,
           sortAtoZ: true,
         });
       });
   }
 
-  toggleSortName(e) {
-    console.log("MADE IT")
-    const { results } = this.state;
-    let newResults = results
+  toggleSortName = (e) => {
+    const { filteredResults } = this.state;
+    let newResults = filteredResults
     if (this.state.sortAtoZ) {
-      newResults.sort((a, b) => a.name.last > b.name.last)
+      console.log("here")
+      newResults.sort(function(a, b){
+        let n1 = a.name.last;
+        let n2 = b.name.last;
+        if (n1 < n2) {return -1};
+        if (n1 > n2) {return 1};
+        return 0;
+      });
     } else {
-      newResults.sort((a, b) => a.name.last < b.name.last)
+      newResults.sort(function(a, b){
+        let n1 = a.name.last;
+        let n2 = b.name.last;
+        if (n1 < n2) {return 1};
+        if (n1 > n2) {return -1};
+        return 0;
+      });
     }
+
     this.setState({
-      sortAsc: !this.state.sortAsc,
-      results: newResults
+      sortAtoZ: !this.state.sortAtoZ,
+      filteredResults: newResults
     })
   }
 
   render() {
+
+    let sortBtnText = "";
+    if (this.state.sortAtoZ) {sortBtnText = <span>&#65;&#90;&#8595;</span>}
+    else {sortBtnText = <span>&#65;&#90;&#8595;</span>}
+
     return (
       <div>
         <SearchForm
           search={this.state.search}
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
-          results={this.state.results}
         />
         <Table
           toggleSortName={this.toggleSortName}
           sortAsc={this.sortAsc}
           users={this.state.filteredResults}
+          state={this.state}
+          sortBtnText={sortBtnText}
         />
       </div>
     );
