@@ -15,7 +15,7 @@ function SearchForm(props) {
           id="search"
           aria-label="Search"
           />
-        <button className="btn my-2 my-sm-0" id="search-btn" type="submit">Search</button>
+        {/* <button className="btn my-2 my-sm-0" id="search-btn" type="submit">Search</button> */}
       </form>
     </div>
   );
