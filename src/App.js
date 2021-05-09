@@ -6,8 +6,8 @@ import TableData from "./components/TableComponents/TableData"
 function App() {
   return (
     <Wrapper>
-      <PageHeader/>
-      <TableData/>
+      <PageHeader />
+      <TableData />
     </Wrapper>
   )
 }

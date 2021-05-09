@@ -32,7 +32,9 @@ class TableData extends Component {
           filteredResults: res.data.results,
           sortAtoZ: true,
         });
+        console.log(this.state.results)
       });
+
   }
 
   toggleSortName = (e) => {
@@ -40,19 +42,19 @@ class TableData extends Component {
     let newResults = filteredResults
     if (this.state.sortAtoZ) {
       console.log("here")
-      newResults.sort(function(a, b){
+      newResults.sort(function (a, b) {
         let n1 = a.name.last;
         let n2 = b.name.last;
-        if (n1 < n2) {return -1};
-        if (n1 > n2) {return 1};
+        if (n1 < n2) { return -1 };
+        if (n1 > n2) { return 1 };
         return 0;
       });
     } else {
-      newResults.sort(function(a, b){
+      newResults.sort(function (a, b) {
         let n1 = a.name.last;
         let n2 = b.name.last;
-        if (n1 < n2) {return 1};
-        if (n1 > n2) {return -1};
+        if (n1 < n2) { return 1 };
+        if (n1 > n2) { return -1 };
         return 0;
       });
     }
@@ -66,8 +68,8 @@ class TableData extends Component {
   render() {
 
     let sortBtnText = "";
-    if (this.state.sortAtoZ) {sortBtnText = "Sort A to Z"}
-    else {sortBtnText = "Sort Z to A"}
+    if (this.state.sortAtoZ) { sortBtnText = "Sort A to Z" }
+    else { sortBtnText = "Sort Z to A" }
 
     return (
       <div>
